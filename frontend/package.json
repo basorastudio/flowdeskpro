@@ -6,13 +6,15 @@
   "author": "FlowDeskPro <FlowDeskPro@FlowDeskPro.io>",
   "private": false,
   "license": "AGPL-3.0-or-later",
-  "github": "https://github.com/flowdeskpro/flowdeskpro.git",
+  "github": "https://github.com/basorastudio/flowdeskpro.git",
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0",
     "start": "pm2 start server.js --name FlowDeskPro-frontend",
     "stop": "pm2 stop server.js --name FlowDeskPro-frontend",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && npx quasar build -P -m pwa"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && npx quasar build -P -m pwa",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all"
   },
   "dependencies": {
     "@quasar/cli": "^2.4.1",
@@ -58,7 +60,9 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "quasar-app-extension-qdatetimepicker": "^1.0.0-rc.18",
-    "workbox-webpack-plugin": "^6.6.0"
+    "workbox-webpack-plugin": "^6.6.0",
+    "sequelize": "^6.32.1",  // Asegúrate de tener Sequelize si lo usas
+    "sequelize-cli": "^6.6.0" // Asegúrate de tener Sequelize CLI si lo usas
   },
   "browserslist": [
     "last 10 Chrome versions",
